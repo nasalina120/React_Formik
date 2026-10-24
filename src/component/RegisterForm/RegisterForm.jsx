@@ -2,8 +2,18 @@ import styles from "../LoginForm/LoginForm.module.sass";
 import USER_VALIDATION_SCHEMA from "../../utils/validate";
 import Input from "../LoginForm/Input/Input";
 import { Formik, Form } from "formik";
+import { useNavigate } from "react-router-dom";
+
 function RegisterForm() {
-  const initialValues = { email: "", password: "" };
+  const navigate = useNavigate();
+
+  const initialValues = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    passwordConf: "",
+  };
 
   const classes = {
     wrapper: styles.inputWrapper,
@@ -15,8 +25,9 @@ function RegisterForm() {
   };
 
   const handleSubmit = (values, formikBag) => {
-    console.log("Submit form with values:", values);
+    console.log("Submit form with create account:", values);
     formikBag.resetForm();
+    navigate("/");
   };
 
   return (
@@ -26,6 +37,21 @@ function RegisterForm() {
       validationSchema={USER_VALIDATION_SCHEMA}
     >
       <Form className={styles.loginForm}>
+        <Input
+          type="text"
+          name="firstName"
+          label="FirstName:"
+          placeholder="yourfirstName"
+          classes={classes}
+        />
+        <Input
+          type="text"
+          name="lastName"
+          label="LastName:"
+          placeholder="yourlastName"
+          classes={classes}
+        />
+
         <Input
           type="email"
           name="email"
@@ -42,8 +68,16 @@ function RegisterForm() {
           classes={classes}
         />
 
+        <Input
+          type="password"
+          name="passwordConf"
+          label="PasswordConf:"
+          placeholder="passwordConf"
+          classes={classes}
+        />
+
         <button type="submit" className={styles.submitBtn}>
-          Login
+          Create account
         </button>
       </Form>
     </Formik>

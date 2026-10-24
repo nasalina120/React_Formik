@@ -3,7 +3,7 @@ import LoginPage from "./component/LoginPage";
 import NotFound from "./component/NotFound";
 import BasePage from "./component/BasePage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import CreateAccount from "./component/RegisterForm/RegisterForm";
+import RegisterPage from "./component/RegisterPage";
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
         <Route path="/" element={<BasePage />}>
           <Route index element={<LoginPage />} />
 
-          <Route path="register" element={<CreateAccount />} />
+          <Route path="register" element={<RegisterPage />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
