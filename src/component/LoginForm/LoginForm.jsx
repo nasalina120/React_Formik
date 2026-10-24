@@ -1,34 +1,53 @@
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import React from "react";
+import { Formik, Form } from "formik";
 import Input from "./Input/Input";
 import USER_VALIDATION_SCHEMA from "../../utils/validate";
 
+import styles from "./LoginForm.module.sass";
+
 function LoginForm() {
   const initialValues = { email: "", password: "" };
+
+  const classes = {
+    wrapper: styles.inputWrapper,
+    input: styles.customInput,
+    error: styles.errorMessage,
+    valid: styles.valid,
+    errorVisible: styles.errorVisible,
+    invalid: styles.invalid,
+  };
 
   const handleSubmit = (values, formikBag) => {
     console.log("Submit form with values:", values);
     formikBag.resetForm();
   };
+
   return (
     <Formik
       initialValues={initialValues}
       onSubmit={handleSubmit}
       validationSchema={USER_VALIDATION_SCHEMA}
     >
-      <Form>
+      <Form className={styles.loginForm}>
         <Input
-          label="Email:"
           type="email"
           name="email"
+          label="Email:"
           placeholder="your@mail.com"
+          classes={classes}
         />
+
         <Input
-          label="Password"
           type="password"
           name="password"
+          label="Password:"
           placeholder="yourPassword"
+          classes={classes}
         />
-        <button type="submit">Login</button>
+
+        <button type="submit" className={styles.submitBtn}>
+          Login
+        </button>
       </Form>
     </Formik>
   );

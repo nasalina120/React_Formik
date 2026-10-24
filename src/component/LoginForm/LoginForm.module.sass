@@ -1,0 +1,72 @@
+.pageContainer
+    background-color: rgba(226, 226, 255, 0.533)
+    height: 100vh
+    display: flex
+    justify-content: center
+    flex-direction: column
+    align-items: center
+    padding: 10px
+
+.loginForm 
+    display: flex
+    flex-direction: column
+    width: 100%
+    max-width: 500px
+    text-align: center
+    
+.formTitle
+    font-size: 32px
+    text-transform: uppercase
+    color: rgb(26, 0, 26)
+    padding-bottom: 40px 
+
+.inputWrapper
+    width: 100%
+    display: flex
+    flex-direction: column
+    margin-bottom: 15px
+    text-align: left
+
+.customInput
+    width: 100%
+    padding: 20px
+    font-size: 18px
+    border-radius: 2px
+    border: 2px solid rgb(0, 87, 127)
+    background-color: white
+    box-sizing: border-box
+    outline: none
+    transition: border-color 0.2s ease-in-out
+
+.valid
+    border-color: green
+
+.invalid
+    border-color: red
+
+.errorMessage
+    font-size: 12px
+    color: red
+    margin-top: 5px
+    font-weight: bold
+    min-height: 15px  
+    display: block  
+    visibility: hidden  
+
+.errorVisible
+    visibility: visible  
+
+.submitBtn 
+    background-color: rgb(121, 5, 121)
+    color: white
+    width: 100%
+    padding: 15px
+    border: none
+    font-weight: bold
+    text-transform: uppercase
+    cursor: pointer
+    border-radius: 5px
+    transition: background-color 0.3s ease-in-out
+    margin-top: 10px
+    &:hover
+        background-color: rgb(39, 0, 39)
